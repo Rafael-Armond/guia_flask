@@ -12,6 +12,8 @@
             <th scope="col">Nome</th>
             <th scope="col">E-mail</th>
             <th scope="col">Tipo de usuário</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +27,10 @@
             {% else %}
             <td scope="row">Usuário comum</td>
             {% endif %}
+            {% if current_user.get_urole() == 'admin' %}
+            <td scope="row"><button type="button" class="btn btn-outline-dark"><a href="{{ url_for('usuarios.deletar',_id=user.id) }}">Deletar</a></button></td>
+            {% endif %}
+            <td scope="row"><button type="button" class="btn btn-outline-dark"><a href="{{ url_for('usuarios.editar',_id=user.id) }}">Editar</a></button></td>
           </tr>
         {% endfor %}
         </tbody>
