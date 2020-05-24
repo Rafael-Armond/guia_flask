@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Editar usuário {% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col border" >
+            <h2>Editar dados</h2>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Seu nome aqui" value="{{ user.name }}">                   
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Seu email aqui" value="{{ user.email }}">
+                  </div>
+                  <div class="form-group">
+                      <label for="urole">Selecione sua hierarquia de usuário</label>
+                      <select name="urole" id="urole" class="form-control">
+                          {% if user.urole == 'admin' %}
+                          <option value="user">Usuário comum</option>
+                          <option value="admin" selected>Administrador</option>
+                          {% else %}
+                          <option value="user" selected>Usuário comum</option>
+                          <option value="admin">Administrador</option>
+                          {% endif %}
+                      </select>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                  </div>
+              </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+{% endblock content %}

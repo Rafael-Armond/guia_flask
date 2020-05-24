@@ -24,9 +24,9 @@ Migrate(app, db)
 ######################## Login ###########################
 ##########################################################
 
-login_mananger = LoginManager()
-login_mananger.init_app(app)
-login_mananger.login_view = "app.index"
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "app.index"
 
 def login_required(role=["ANY"]):
     def wrapper(fn):
@@ -46,7 +46,9 @@ def login_required(role=["ANY"]):
 ####################### Blueprints ##########################
 #############################################################
 
-#### Hello world
-@app.route("/")
-def index():
-    return "Hello world!"
+from guia_flask.principal.views import principal
+from guia_flask.usuarios.views import usuarios
+
+app.register_blueprint(principal)
+app.register_blueprint(usuarios,url_prefix='/usuarios')
+

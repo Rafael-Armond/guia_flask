@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Login {% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col border" >
+            <h2>Faça seu login</h2>
+            <form action="{{ url_for('usuarios.login') }}" method="POST">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Insira seu email">
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Digite sua senha">
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                  </div>
+              </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+{% endblock content %}

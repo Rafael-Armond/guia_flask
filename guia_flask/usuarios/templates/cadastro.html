@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ super() }} - Cadastro {% endblock title %}
+
+{% block content%}
+
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col border" >
+            <h2>Cadastro de usuário</h2>
+            <form action="{{ url_for('usuarios.cadastrar') }}" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Insira seu nome">                   
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Insira seu email">
+                  </div>
+                  <div class="form-group">
+                      <label for="urole">Selecione sua hierarquia de usuário</label>
+                      <select name="urole" id="urole" class="form-control">
+                          <option value="user">Usuário comum</option>
+                          <option value="admin">Administrador</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" class="form-control" name="senha" id="senha" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Cadastre-se</button>
+                  </div>
+              </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+{% endblock content %}
